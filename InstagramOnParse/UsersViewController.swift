@@ -18,10 +18,12 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //var addUser = PFUser()
+        //users.append(addUser)
         getUsers()
 
         refreshControl.attributedTitle = NSAttributedString(string: "Refresh")
-        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
     }
 
@@ -78,7 +80,6 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     func refresh(sender: AnyObject) {
         getUsers()
-        refreshControl.endRefreshing()
     }
 
     func getUsers() {
@@ -107,6 +108,7 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
                         } else {
                             println(error)
                         }
+                        self.refreshControl.endRefreshing()
                     }
                 }
             }
