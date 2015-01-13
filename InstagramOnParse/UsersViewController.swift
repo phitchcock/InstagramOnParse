@@ -11,13 +11,18 @@ import UIKit
 class UsersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var users: [PFUser] = []
-    var following = [Bool]()
+    var following: [Bool] = []
+    var refreshControl = UIRefreshControl()
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getUsers()
+
+        refreshControl.attributedTitle = NSAttributedString(string: "Refresh")
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +76,11 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
 
+    func refresh(sender: AnyObject) {
+        getUsers()
+        refreshControl.endRefreshing()
+    }
+
     func getUsers() {
         var query = PFUser.query()
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
@@ -79,6 +89,7 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
                 var user: PFUser = object as PFUser
                 var isFollowing: Bool
                 if user.username != PFUser.currentUser().username {
+
                     self.users.append(user)
                     isFollowing = false
 
