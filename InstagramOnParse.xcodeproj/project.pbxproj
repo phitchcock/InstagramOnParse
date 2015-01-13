@@ -31,6 +31,7 @@
 		D0A857301A65960400FC399E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A857251A65960400FC399E /* Security.framework */; };
 		D0A857311A65960400FC399E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A857261A65960400FC399E /* StoreKit.framework */; };
 		D0A857321A65960400FC399E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A857271A65960400FC399E /* SystemConfiguration.framework */; };
+		D0A857381A65A04B00FC399E /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A857371A65A04B00FC399E /* UsersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		D0A857261A65960400FC399E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D0A857271A65960400FC399E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D0A857341A65962800FC399E /* InstagramOnParse-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InstagramOnParse-Bridging-Header.h"; sourceTree = "<group>"; };
+		D0A857371A65A04B00FC399E /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			children = (
 				D0A856EB1A65900E00FC399E /* AppDelegate.swift */,
 				D0A856F21A65900E00FC399E /* Main.storyboard */,
+				D0A857371A65A04B00FC399E /* UsersViewController.swift */,
 				D0A857121A6593F200FC399E /* Signup */,
 				D0A856F51A65900E00FC399E /* Images.xcassets */,
 				D0A856F71A65900E00FC399E /* LaunchScreen.xib */,
@@ -302,6 +305,7 @@
 			files = (
 				D0A856EC1A65900E00FC399E /* AppDelegate.swift in Sources */,
 				D0A856EF1A65900E00FC399E /* InstagramOnParse.xcdatamodeld in Sources */,
+				D0A857381A65A04B00FC399E /* UsersViewController.swift in Sources */,
 				D0A8570F1A6593DF00FC399E /* SignInViewController.swift in Sources */,
 				D0A857111A6593EB00FC399E /* RegisterViewController.swift in Sources */,
 			);

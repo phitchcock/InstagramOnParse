@@ -18,6 +18,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
     }
 
+    override func viewDidAppear(animated: Bool) {
+        if PFUser.currentUser() != nil {
+            performSegueWithIdentifier("loginSegue", sender: self)
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
