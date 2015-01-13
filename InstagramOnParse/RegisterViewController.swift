@@ -24,7 +24,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func registerAccountButtonPressed(sender: AnyObject) {
-        
+        var user = PFUser()
+        user.email = userEmailTextField.text
+        user.username = usernameTextField.text
+        user.password = passwordTextField.text
+
+        user.signUpInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
+            if error != nil {
+                println("error")
+            } else {
+                self.performSegueWithIdentifier("signupSegue", sender: self)
+            }
+        }
 
     }
 
