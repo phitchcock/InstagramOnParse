@@ -88,11 +88,11 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.users.removeAll(keepCapacity: true)
             for object in objects {
                 var user: PFUser = object as PFUser
-                var isFollowing: Bool
+                var isFollowing = Bool()
                 if user.username != PFUser.currentUser().username {
 
                     self.users.append(user)
-                    isFollowing = false
+                    //isFollowing = false
 
                     var query = PFQuery(className:"Follow")
                     query.whereKey("follower", equalTo: PFUser.currentUser())

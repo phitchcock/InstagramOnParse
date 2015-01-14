@@ -314,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VHo-v1-NfE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1615" y="1475"/>
+            <point key="canvasLocation" x="2045" y="1470"/>
         </scene>
         <!--Users View Controller-->
         <scene sceneID="Qvg-dE-vsU">
@@ -375,7 +375,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="GaL-pm-wNw" kind="relationship" relationship="viewControllers" id="qoJ-fd-bLW"/>
-                        <segue destination="5iN-Xr-ryF" kind="relationship" relationship="viewControllers" id="Pma-M8-MxS"/>
+                        <segue destination="NbG-G2-NKh" kind="relationship" relationship="viewControllers" id="xZ5-C2-KJU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t3D-Ge-tLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -401,24 +401,99 @@
             </objects>
             <point key="canvasLocation" x="1191" y="799"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="2VK-yB-Bnx">
+        <!--Images View Controller-->
+        <scene sceneID="YuL-sa-Bc3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5iN-Xr-ryF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Sxg-jV-fqA"/>
+                <viewController id="g4s-HV-69s" customClass="ImagesViewController" customModule="InstagramOnParse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OJ6-mo-VDk"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uz2-9L-ihq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XXA-WU-e4h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hgI-Qk-8iS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w31-Qa-gJ0">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="hNf-lG-igF" customClass="ImageCollectionViewCell" customModule="InstagramOnParse" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UEl-Op-Qcb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="UEl-Op-Qcb" firstAttribute="leading" secondItem="hNf-lG-igF" secondAttribute="leadingMargin" constant="-8" id="5Br-ZE-Uix"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="UEl-Op-Qcb" secondAttribute="bottom" constant="-8" id="CeV-1y-y15"/>
+                                            <constraint firstItem="UEl-Op-Qcb" firstAttribute="top" secondItem="hNf-lG-igF" secondAttribute="topMargin" constant="-8" id="N4u-jf-Yrl"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="UEl-Op-Qcb" secondAttribute="trailing" constant="-8" id="hea-pk-7m3"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="UEl-Op-Qcb" id="yCu-vP-dpe"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="g4s-HV-69s" id="eP1-77-c59"/>
+                                    <outlet property="delegate" destination="g4s-HV-69s" id="Nf5-Oa-LvH"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hgI-Qk-8iS" firstAttribute="leading" secondItem="XXA-WU-e4h" secondAttribute="leadingMargin" constant="-16" id="Kie-54-ODx"/>
+                            <constraint firstItem="hgI-Qk-8iS" firstAttribute="bottom" secondItem="XXA-WU-e4h" secondAttribute="bottomMargin" id="Lq8-5z-1om"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hgI-Qk-8iS" secondAttribute="trailing" constant="-16" id="Rax-8n-Rsc"/>
+                            <constraint firstItem="hgI-Qk-8iS" firstAttribute="top" secondItem="XXA-WU-e4h" secondAttribute="topMargin" id="lf3-Cp-609"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ck3-Li-wbe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="gl3-p9-6QF">
+                            <connections>
+                                <segue destination="4w9-nm-5pe" kind="push" identifier="addImage" id="UV6-9a-Kag"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="hgI-Qk-8iS" id="hGG-iF-hP2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IUT-Wd-akk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1615" y="1470"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="yyg-1j-1ob">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NbG-G2-NKh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="TjT-Ob-5p1"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Emb-Qr-YdZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0FF-aW-eRF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="4w9-nm-5pe" kind="relationship" relationship="rootViewController" id="iNX-hU-QMC"/>
+                        <segue destination="g4s-HV-69s" kind="relationship" relationship="rootViewController" id="Eeg-PK-SCD"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U4e-kl-t8o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uOf-Z4-zQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1191" y="1475"/>
+            <point key="canvasLocation" x="1191" y="1470"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

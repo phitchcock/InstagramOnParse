@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0489AD61A661D2A00FFFECD /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489AD51A661D2A00FFFECD /* ImagesViewController.swift */; };
+		D0489AD81A661FBF00FFFECD /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489AD71A661FBF00FFFECD /* ImageCollectionViewCell.swift */; };
 		D0A856EC1A65900E00FC399E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A856EB1A65900E00FC399E /* AppDelegate.swift */; };
 		D0A856EF1A65900E00FC399E /* InstagramOnParse.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0A856ED1A65900E00FC399E /* InstagramOnParse.xcdatamodeld */; };
 		D0A856F41A65900E00FC399E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A856F21A65900E00FC399E /* Main.storyboard */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D0489AD51A661D2A00FFFECD /* ImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
+		D0489AD71A661FBF00FFFECD /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0A856E61A65900E00FC399E /* InstagramOnParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramOnParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A856EA1A65900E00FC399E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0A856EB1A65900E00FC399E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -217,7 +221,9 @@
 		D0A8573C1A65BBE800FC399E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D0489AD71A661FBF00FFFECD /* ImageCollectionViewCell.swift */,
 				D0A8573A1A65BBE000FC399E /* PostImageViewController.swift */,
+				D0489AD51A661D2A00FFFECD /* ImagesViewController.swift */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -323,6 +329,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0A856EC1A65900E00FC399E /* AppDelegate.swift in Sources */,
+				D0489AD61A661D2A00FFFECD /* ImagesViewController.swift in Sources */,
+				D0489AD81A661FBF00FFFECD /* ImageCollectionViewCell.swift in Sources */,
 				D0A856EF1A65900E00FC399E /* InstagramOnParse.xcdatamodeld in Sources */,
 				D0A8573B1A65BBE000FC399E /* PostImageViewController.swift in Sources */,
 				D0A857381A65A04B00FC399E /* UsersViewController.swift in Sources */,
@@ -532,6 +540,7 @@
 				D0A8570A1A65900E00FC399E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0A8570B1A65900E00FC399E /* Build configuration list for PBXNativeTarget "InstagramOnParseTests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +549,7 @@
 				D0A8570D1A65900E00FC399E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

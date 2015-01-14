@@ -38,19 +38,20 @@ class PostImageViewController: UIViewController, UINavigationControllerDelegate,
     @IBAction func postImageButtonPressed(sender: AnyObject) {
         var user = PFUser.currentUser()
         var photo = PFObject(className: "Photo")
-        var comment = PFObject(className: "Comment")
+        //var comment = PFObject(className: "Comment")
         var imageData = UIImageJPEGRepresentation(imageView.image, 0.1)
         var imageFile = PFFile(name: "postImage.jpeg", data: imageData)
 
         photo["user_id"] = user
         photo["image"] = imageFile
+        photo["title"] = postTextField.text
 
-        comment["user_id"] = user
-        comment["photo_id"] = photo
-        comment["comment"] = postTextField.text
+        //comment["user_id"] = user
+        //comment["photo_id"] = photo
+        //comment["comment"] = postTextField.text
 
         photo.saveInBackgroundWithTarget(nil, selector: nil)
-        comment.saveInBackgroundWithTarget(nil, selector: nil)
+        //comment.saveInBackgroundWithTarget(nil, selector: nil)
 
     }
     
