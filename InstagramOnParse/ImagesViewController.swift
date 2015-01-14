@@ -15,7 +15,7 @@ class ImagesViewController: UIViewController, UICollectionViewDataSource, UIColl
     var refreshControl = UIRefreshControl()
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         getImages()
@@ -45,6 +45,7 @@ class ImagesViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as ImageCollectionViewCell
         let imageData = images[indexPath.row]
+        cell.titleLabel.text = imageData["title"] as? String
         imageFile = imageData["image"] as PFFile
         imageFile.getDataInBackgroundWithBlock { (data: NSData!, error: NSError!) -> Void in
             if error == nil {
@@ -74,6 +75,10 @@ class ImagesViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     }
 
+    @IBAction func logoutButtonPressed(sender: AnyObject) {
+        PFUser.logOut()
+        performSegueWithIdentifier("logoutSegue", sender: self)
+    }
     
 
 }

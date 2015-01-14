@@ -16,6 +16,9 @@ class PostImageViewController: UIViewController, UINavigationControllerDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        postTextField.layer.cornerRadius = 10.0
+        postTextField.layer.borderWidth = 1
+        postTextField.layer.borderColor = UIColor.blackColor().CGColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +55,7 @@ class PostImageViewController: UIViewController, UINavigationControllerDelegate,
 
         photo.saveInBackgroundWithTarget(nil, selector: nil)
         //comment.saveInBackgroundWithTarget(nil, selector: nil)
+        navigationController?.popViewControllerAnimated(true)
 
     }
     
