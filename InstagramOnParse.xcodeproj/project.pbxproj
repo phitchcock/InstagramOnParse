@@ -38,6 +38,7 @@
 		D0A857321A65960400FC399E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A857271A65960400FC399E /* SystemConfiguration.framework */; };
 		D0A857381A65A04B00FC399E /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A857371A65A04B00FC399E /* UsersViewController.swift */; };
 		D0A8573B1A65BBE000FC399E /* PostImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8573A1A65BBE000FC399E /* PostImageViewController.swift */; };
+		D0EC01AD1A6846A400A6D40D /* ShowImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC01AC1A6846A300A6D40D /* ShowImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		D0A857341A65962800FC399E /* InstagramOnParse-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InstagramOnParse-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0A857371A65A04B00FC399E /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		D0A8573A1A65BBE000FC399E /* PostImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageViewController.swift; sourceTree = "<group>"; };
+		D0EC01AC1A6846A300A6D40D /* ShowImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +243,7 @@
 				D0489AD71A661FBF00FFFECD /* ImageCollectionViewCell.swift */,
 				D0A8573A1A65BBE000FC399E /* PostImageViewController.swift */,
 				D0489AD51A661D2A00FFFECD /* ImagesViewController.swift */,
+				D0EC01AC1A6846A300A6D40D /* ShowImageViewController.swift */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				D0A856EF1A65900E00FC399E /* InstagramOnParse.xcdatamodeld in Sources */,
 				D0A8573B1A65BBE000FC399E /* PostImageViewController.swift in Sources */,
 				D0489B0D1A66660E00FFFECD /* ProfileViewController.swift in Sources */,
+				D0EC01AD1A6846A400A6D40D /* ShowImageViewController.swift in Sources */,
 				D0A857381A65A04B00FC399E /* UsersViewController.swift in Sources */,
 				D0A8570F1A6593DF00FC399E /* SignInViewController.swift in Sources */,
 				D0A857111A6593EB00FC399E /* RegisterViewController.swift in Sources */,

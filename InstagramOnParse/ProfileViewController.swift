@@ -11,15 +11,18 @@ import UIKit
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     //var user = PFUser.currentUser()
-    var imageFile: PFFile!
-    var cellImageFile: PFFile!
+    var images = [PFObject]()
+    var imageFile = PFFile()
+    var cellImageFile = PFFile()
 
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getImages()
         usernameLabel.text = PFUser.currentUser().username
         userProfileImageView.layer.cornerRadius = userProfileImageView.frame.size.width / 2
         userProfileImageView.layer.borderWidth = 1
@@ -44,31 +47,58 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return images.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as FeedTableViewCell
-
-        cell.titleLabel.text = "What"
+        let getImage = images[indexPath.row]
+        cell.titleLabel.text = getImage["title"] as? String
         cell.usernameLabel.text = "Yep"
         cell.userProfileImageView.layer.cornerRadius = cell.cellImageView.frame.size.width / 2
         cell.userProfileImageView.clipsToBounds = true
-        cellImageFile = PFUser.currentUser()["imageFile"] as PFFile
+        println(getImage)
+
+        cellImageFile = getImage["image"] as PFFile
         cellImageFile.getDataInBackgroundWithBlock { (data: NSData!, error: NSError!) -> Void in
             if error != nil {
                 println("error")
             } else {
+                //println(data)
                 let image = UIImage(data: data)
-                cell.userProfileImageView.image = image
+                cell.cellImageView.image = image
             }
         }
+
         return cell
 
     }
 
-    func getUser() {
+    func getImages() {
+        var query = PFQuery(className: "Photo")
+        query.whereKey("user_id", equalTo: PFUser.currentUser())
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                self.images.removeAll()
+                for object in objects {
+                    self.images.append(object as PFObject)
 
+                }
+                self.tableView.reloadData()
+
+            } else {
+                println("error")
+            }
+        }
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showImageSegue" {
+            if let row = tableView.indexPathForSelectedRow()?.row {
+                let destinationViewController = segue.destinationViewController as ShowImageViewController
+                destinationViewController.showImage = images[row]
+            }
+        }
     }
     
 
