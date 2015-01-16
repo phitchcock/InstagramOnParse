@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     var images = [PFObject]()
     var imageFile = PFFile()
     var cellImageFile = PFFile()
+    var refreshControl = UIRefreshControl()
 
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var userProfileImageView: UIImageView!
@@ -40,11 +41,21 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
 
+        refreshControl.attributedTitle = NSAttributedString(string: "Refresh")
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        tableView.addSubview(refreshControl)
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
+    func refresh(sender: AnyObject) {
+        getImages()
+        refreshControl.endRefreshing()
+    }
+
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return images.count
@@ -57,7 +68,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.usernameLabel.text = "Yep"
         cell.userProfileImageView.layer.cornerRadius = cell.cellImageView.frame.size.width / 2
         cell.userProfileImageView.clipsToBounds = true
-        println(getImage)
 
         cellImageFile = getImage["image"] as PFFile
         cellImageFile.getDataInBackgroundWithBlock { (data: NSData!, error: NSError!) -> Void in
@@ -77,6 +87,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func getImages() {
         var query = PFQuery(className: "Photo")
         query.whereKey("user_id", equalTo: PFUser.currentUser())
+        query.orderByDescending("createdAt")
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
                 self.images.removeAll()

@@ -13,6 +13,7 @@ class ShowImageViewController: UIViewController, UITableViewDataSource, UITableV
     var comments = [PFObject]()
     var showImage: PFObject!
     var imageFile: PFFile!
+    var refreshControl = UIRefreshControl()
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -36,6 +37,16 @@ class ShowImageViewController: UIViewController, UITableViewDataSource, UITableV
             }
         }
 
+        refreshControl.attributedTitle = NSAttributedString(string: "Refresh")
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        tableView.addSubview(refreshControl)
+
+
+    }
+
+    func refresh(sender: AnyObject) {
+        getComments()
+        refreshControl.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {

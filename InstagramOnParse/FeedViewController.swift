@@ -12,12 +12,22 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     var images = [PFObject]()
     var imageFile = PFFile()
+    var refreshControl = UIRefreshControl()
 
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         getImages()
+
+        refreshControl.attributedTitle = NSAttributedString(string: "Refresh")
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        tableView.addSubview(refreshControl)
+    }
+
+    func refresh(sender: AnyObject) {
+        getImages()
+        refreshControl.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +61,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func getImages() {
         var query = PFQuery(className: "Photo")
+        query.orderByDescending("createdAt")
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
                 self.images.removeAll()
@@ -62,6 +73,15 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
             } else {
                 println("error")
+            }
+        }
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "pushShowImageSegue" {
+            if let row = tableView.indexPathForSelectedRow()?.row {
+                let destinationViewController = segue.destinationViewController as ShowImageViewController
+                destinationViewController.showImage = images[row]
             }
         }
     }

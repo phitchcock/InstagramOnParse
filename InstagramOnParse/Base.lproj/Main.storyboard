@@ -266,7 +266,7 @@
             </objects>
             <point key="canvasLocation" x="718" y="170"/>
         </scene>
-        <!--Post Image View Controller-->
+        <!--Take Pic-->
         <scene sceneID="wln-Id-U54">
             <objects>
                 <viewController id="4w9-nm-5pe" customClass="PostImageViewController" customModule="InstagramOnParse" customModuleProvider="target" sceneMemberID="viewController">
@@ -314,7 +314,7 @@
                             <constraint firstItem="od5-SL-ESW" firstAttribute="top" secondItem="Lcz-Ug-5nh" secondAttribute="bottom" constant="-2" id="n9v-nk-vnj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="g0S-nS-uoH">
+                    <navigationItem key="navigationItem" title="Take Pic" id="g0S-nS-uoH">
                         <barButtonItem key="leftBarButtonItem" systemItem="camera" id="KBh-OV-WD5">
                             <connections>
                                 <action selector="selectImageButtonPressed:" destination="4w9-nm-5pe" id="fay-EB-AmN"/>
@@ -601,7 +601,7 @@
             </objects>
             <point key="canvasLocation" x="1499" y="1293"/>
         </scene>
-        <!--Show Image View Controller-->
+        <!--Image-->
         <scene sceneID="xxT-mk-XXJ">
             <objects>
                 <viewController id="qpb-bD-yeb" customClass="ShowImageViewController" customModule="InstagramOnParse" customModuleProvider="target" sceneMemberID="viewController">
@@ -759,7 +759,7 @@
                             <constraint firstItem="v8w-yI-GjU" firstAttribute="bottom" secondItem="XO4-cy-FDW" secondAttribute="bottomMargin" id="yzF-tl-gfq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="STU-nD-HEY"/>
+                    <navigationItem key="navigationItem" title="Image" id="STU-nD-HEY"/>
                     <connections>
                         <outlet property="commentTextField" destination="cOX-Vn-450" id="FtE-of-YA9"/>
                         <outlet property="imageView" destination="yls-yC-yxQ" id="6oz-7d-KRN"/>
@@ -814,7 +814,7 @@
             </objects>
             <point key="canvasLocation" x="1092" y="644"/>
         </scene>
-        <!--Images View Controller-->
+        <!--Images-->
         <scene sceneID="YuL-sa-Bc3">
             <objects>
                 <viewController id="g4s-HV-69s" customClass="ImagesViewController" customModule="InstagramOnParse" customModuleProvider="target" sceneMemberID="viewController">
@@ -887,7 +887,7 @@
                             <constraint firstItem="hgI-Qk-8iS" firstAttribute="top" secondItem="XXA-WU-e4h" secondAttribute="topMargin" id="lf3-Cp-609"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ck3-Li-wbe">
+                    <navigationItem key="navigationItem" title="Images" id="ck3-Li-wbe">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="6De-8p-IbR">
                             <connections>
                                 <action selector="logoutButtonPressed:" destination="g4s-HV-69s" id="Iuf-Hr-ow9"/>
@@ -923,7 +923,7 @@
             </objects>
             <point key="canvasLocation" x="540" y="1967"/>
         </scene>
-        <!--Feed View Controller-->
+        <!--Feed-->
         <scene sceneID="GZs-PV-HfF">
             <objects>
                 <viewController id="sW1-cn-JMk" customClass="FeedViewController" customModule="InstagramOnParse" customModuleProvider="target" sceneMemberID="viewController">
@@ -1031,6 +1031,7 @@
                                             <outlet property="titleLabel" destination="M9C-uw-33a" id="QMq-zZ-18S"/>
                                             <outlet property="userProfileImageView" destination="Oih-W2-gHX" id="nbj-x8-qTO"/>
                                             <outlet property="usernameLabel" destination="RfL-JP-UWM" id="DUj-Vc-hX6"/>
+                                            <segue destination="qpb-bD-yeb" kind="push" identifier="pushShowImageSegue" id="H5z-ce-YAL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1048,7 +1049,7 @@
                             <constraint firstItem="r4d-uv-QBC" firstAttribute="top" secondItem="7Te-9i-Ubc" secondAttribute="topMargin" id="PZn-Pa-xkS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Wim-Ml-SmS"/>
+                    <navigationItem key="navigationItem" title="Feed" id="Wim-Ml-SmS"/>
                     <connections>
                         <outlet property="tableView" destination="r4d-uv-QBC" id="KpC-iv-d2o"/>
                     </connections>
@@ -1095,7 +1096,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWa-eK-p7W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="93" y="885"/>
+            <point key="canvasLocation" x="78" y="859"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="T7F-ys-Ye3">
@@ -1128,6 +1129,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="gzB-ku-dGp"/>
-        <segue reference="m6k-7z-5Vk"/>
+        <segue reference="4KC-lE-ywV"/>
+        <segue reference="H5z-ce-YAL"/>
     </inferredMetricsTieBreakers>
 </document>
