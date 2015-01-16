@@ -19,11 +19,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func viewDidAppear(animated: Bool) {
-        /*
+
         if PFUser.currentUser() != nil {
             performSegueWithIdentifier("loginSegue", sender: self)
         }
-        */
+        
 
     }
 
