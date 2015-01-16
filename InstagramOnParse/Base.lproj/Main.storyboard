@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -873,6 +873,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="UEl-Op-Qcb" id="yCu-vP-dpe"/>
                                             <outlet property="titleLabel" destination="1S4-zw-EhT" id="OK1-Qi-VVe"/>
+                                            <segue destination="qpb-bD-yeb" kind="push" identifier="imageCellSegue" id="h4c-61-xiz"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1099,7 +1100,6 @@
         <!--Item-->
         <scene sceneID="rM7-7x-eUr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VyS-18-JAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ktS-aq-1ej" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="gHK-mC-9Mz"/>
                     <toolbarItems/>
@@ -1112,6 +1112,7 @@
                         <segue destination="g4s-HV-69s" kind="relationship" relationship="rootViewController" id="XyO-gV-us6"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VyS-18-JAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1183" y="3270"/>
         </scene>
@@ -1127,6 +1128,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="gzB-ku-dGp"/>
         <segue reference="fQn-N7-dEV"/>
-        <segue reference="MxP-oX-OLG"/>
+        <segue reference="h4c-61-xiz"/>
     </inferredMetricsTieBreakers>
 </document>

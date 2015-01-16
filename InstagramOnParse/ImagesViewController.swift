@@ -79,9 +79,13 @@ class ImagesViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     }
 
-    @IBAction func logoutButtonPressed(sender: AnyObject) {
-        PFUser.logOut()
-        performSegueWithIdentifier("logoutSegue", sender: self)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "imageCellSegue" {
+            var indexPaths: [AnyObject] = collectionView.indexPathsForSelectedItems()
+            let destinationViewController = segue.destinationViewController as ShowImageViewController
+            var indexPath: NSIndexPath = indexPaths[0] as NSIndexPath
+            destinationViewController.showImage = images[indexPath.row]
+        }
     }
     
 
