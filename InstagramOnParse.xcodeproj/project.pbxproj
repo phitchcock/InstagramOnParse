@@ -20,7 +20,6 @@
 		D0A857051A65900E00FC399E /* InstagramOnParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A857041A65900E00FC399E /* InstagramOnParseTests.swift */; };
 		D0A8570F1A6593DF00FC399E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8570E1A6593DF00FC399E /* SignInViewController.swift */; };
 		D0A857111A6593EB00FC399E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A857101A6593EB00FC399E /* RegisterViewController.swift */; };
-		D0A857181A65958500FC399E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A857131A65958500FC399E /* Bolts.framework */; };
 		D0A857191A65958500FC399E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A857141A65958500FC399E /* Parse.framework */; };
 		D0A8571A1A65958500FC399E /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A857151A65958500FC399E /* ParseCrashReporting.framework */; };
 		D0A8571B1A65958500FC399E /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A857161A65958500FC399E /* ParseFacebookUtils.framework */; };
@@ -39,6 +38,7 @@
 		D0A857381A65A04B00FC399E /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A857371A65A04B00FC399E /* UsersViewController.swift */; };
 		D0A8573B1A65BBE000FC399E /* PostImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8573A1A65BBE000FC399E /* PostImageViewController.swift */; };
 		D0EC01AD1A6846A400A6D40D /* ShowImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC01AC1A6846A300A6D40D /* ShowImageViewController.swift */; };
+		D0EC01AF1A698A5800A6D40D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EC01AE1A698A5800A6D40D /* Bolts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,6 @@
 		D0A857041A65900E00FC399E /* InstagramOnParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramOnParseTests.swift; sourceTree = "<group>"; };
 		D0A8570E1A6593DF00FC399E /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D0A857101A6593EB00FC399E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		D0A857131A65958500FC399E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		D0A857141A65958500FC399E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D0A857151A65958500FC399E /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
 		D0A857161A65958500FC399E /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		D0A857371A65A04B00FC399E /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		D0A8573A1A65BBE000FC399E /* PostImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageViewController.swift; sourceTree = "<group>"; };
 		D0EC01AC1A6846A300A6D40D /* ShowImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageViewController.swift; sourceTree = "<group>"; };
+		D0EC01AE1A698A5800A6D40D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,7 @@
 				D0A8571A1A65958500FC399E /* ParseCrashReporting.framework in Frameworks */,
 				D0A8571C1A65958500FC399E /* ParseUI.framework in Frameworks */,
 				D0A8571B1A65958500FC399E /* ParseFacebookUtils.framework in Frameworks */,
-				D0A857181A65958500FC399E /* Bolts.framework in Frameworks */,
+				D0EC01AF1A698A5800A6D40D /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +208,7 @@
 		D0A857331A65960C00FC399E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0EC01AE1A698A5800A6D40D /* Bolts.framework */,
 				D0A8571D1A65960400FC399E /* AudioToolbox.framework */,
 				D0A8571E1A65960400FC399E /* CFNetwork.framework */,
 				D0A8571F1A65960400FC399E /* CoreGraphics.framework */,
@@ -219,7 +220,6 @@
 				D0A857251A65960400FC399E /* Security.framework */,
 				D0A857261A65960400FC399E /* StoreKit.framework */,
 				D0A857271A65960400FC399E /* SystemConfiguration.framework */,
-				D0A857131A65958500FC399E /* Bolts.framework */,
 				D0A857141A65958500FC399E /* Parse.framework */,
 				D0A857151A65958500FC399E /* ParseCrashReporting.framework */,
 				D0A857161A65958500FC399E /* ParseFacebookUtils.framework */,
@@ -297,6 +297,7 @@
 				TargetAttributes = {
 					D0A856E51A65900D00FC399E = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 36CUT7YB68;
 					};
 					D0A856FD1A65900E00FC399E = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -483,6 +484,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -490,6 +493,7 @@
 				INFOPLIST_FILE = InstagramOnParse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "InstagramOnParse/InstagramOnParse-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -500,6 +504,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -507,6 +513,7 @@
 				INFOPLIST_FILE = InstagramOnParse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "InstagramOnParse/InstagramOnParse-Bridging-Header.h";
 			};
 			name = Release;

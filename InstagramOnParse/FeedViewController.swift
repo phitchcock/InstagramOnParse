@@ -44,7 +44,9 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //cell.imageView?.image = UIImage(named: "ProfileCover")
         cell.titleLabel.text = getImage["title"] as? String
         cell.usernameLabel.text = "Yep"
-        cell.userProfileImageView.layer.cornerRadius = cell.cellImageView.frame.size.width / 2
+
+        cell.userProfileImageView.image = UIImage(named: "ProfileCover")
+        cell.userProfileImageView.layer.cornerRadius = cell.userProfileImageView.frame.size.width / 2
         cell.userProfileImageView.clipsToBounds = true
 
         imageFile = getImage["image"] as PFFile
@@ -56,6 +58,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 println("error")
             }
         }
+        
         return cell
     }
 

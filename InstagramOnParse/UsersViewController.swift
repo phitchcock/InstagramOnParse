@@ -115,4 +115,13 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showImagesSegue" {
+            if let row = tableView.indexPathForSelectedRow()?.row {
+                let destinationViewController = segue.destinationViewController as ImagesViewController
+                destinationViewController.user = users[row]
+            }
+        }
+    }
+
 }

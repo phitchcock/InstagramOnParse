@@ -44,6 +44,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         refreshControl.attributedTitle = NSAttributedString(string: "Refresh")
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
+        tableView.separatorColor = UIColor.clearColor()
 
     }
 
@@ -110,6 +111,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 destinationViewController.showImage = images[row]
             }
         }
+    }
+
+    @IBAction func logoutButtonPressed(sender: AnyObject) {
+        PFUser.logOut()
+        performSegueWithIdentifier("logoutSegue", sender: self)
     }
     
 

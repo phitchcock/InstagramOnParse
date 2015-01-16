@@ -41,6 +41,8 @@ class ShowImageViewController: UIViewController, UITableViewDataSource, UITableV
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
 
+        tableView.separatorColor = UIColor.clearColor()
+
 
     }
 
@@ -59,9 +61,14 @@ class ShowImageViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as FeedTableViewCell
         let comment = comments[indexPath.row]
-        cell.textLabel?.text = comment["comment"] as? String
+        cell.commentLabel.text = comment["comment"] as? String
+
+        cell.userProfileImageView.image = UIImage(named: "ProfileCover")
+        cell.userProfileImageView.layer.cornerRadius = cell.userProfileImageView.frame.size.width / 2
+        cell.userProfileImageView.clipsToBounds = true
+
         return cell
     }
     
@@ -78,6 +85,7 @@ class ShowImageViewController: UIViewController, UITableViewDataSource, UITableV
     func getComments() {
         var query = PFQuery(className: "Comment")
         query.whereKey("photo_id", equalTo: showImage)
+        query.orderByAscending("createdAt")
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
                 self.comments.removeAll()
