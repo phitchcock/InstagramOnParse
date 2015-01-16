@@ -30,6 +30,14 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>NSLocationUsageDescription</key>
+	<string>Need your location</string>
+	<key>NSLocationWhenInUsageDescription</key>
+	<string>Location Needed</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Location Needed</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

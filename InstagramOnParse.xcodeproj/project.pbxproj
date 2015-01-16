@@ -39,6 +39,8 @@
 		D0A8573B1A65BBE000FC399E /* PostImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8573A1A65BBE000FC399E /* PostImageViewController.swift */; };
 		D0EC01AD1A6846A400A6D40D /* ShowImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC01AC1A6846A300A6D40D /* ShowImageViewController.swift */; };
 		D0EC01AF1A698A5800A6D40D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EC01AE1A698A5800A6D40D /* Bolts.framework */; };
+		D0EC01B11A69C4B200A6D40D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC01B01A69C4B200A6D40D /* MapViewController.swift */; };
+		D0EC01B31A69C51E00A6D40D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EC01B21A69C51E00A6D40D /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		D0A8573A1A65BBE000FC399E /* PostImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageViewController.swift; sourceTree = "<group>"; };
 		D0EC01AC1A6846A300A6D40D /* ShowImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageViewController.swift; sourceTree = "<group>"; };
 		D0EC01AE1A698A5800A6D40D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		D0EC01B01A69C4B200A6D40D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D0EC01B21A69C51E00A6D40D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 				D0A8572E1A65960400FC399E /* MobileCoreServices.framework in Frameworks */,
 				D0A8572F1A65960400FC399E /* QuartzCore.framework in Frameworks */,
 				D0A857301A65960400FC399E /* Security.framework in Frameworks */,
+				D0EC01B31A69C51E00A6D40D /* MapKit.framework in Frameworks */,
 				D0A857311A65960400FC399E /* StoreKit.framework in Frameworks */,
 				D0A857321A65960400FC399E /* SystemConfiguration.framework in Frameworks */,
 				D0A857191A65958500FC399E /* Parse.framework in Frameworks */,
@@ -158,6 +163,7 @@
 			children = (
 				D0A856EB1A65900E00FC399E /* AppDelegate.swift */,
 				D0A856F21A65900E00FC399E /* Main.storyboard */,
+				D0EC01B01A69C4B200A6D40D /* MapViewController.swift */,
 				D0489ADB1A662D0F00FFFECD /* Feed */,
 				D0A8573C1A65BBE800FC399E /* Images */,
 				D0A857391A65BBC800FC399E /* User */,
@@ -208,6 +214,7 @@
 		D0A857331A65960C00FC399E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0EC01B21A69C51E00A6D40D /* MapKit.framework */,
 				D0EC01AE1A698A5800A6D40D /* Bolts.framework */,
 				D0A8571D1A65960400FC399E /* AudioToolbox.framework */,
 				D0A8571E1A65960400FC399E /* CFNetwork.framework */,
@@ -298,6 +305,11 @@
 					D0A856E51A65900D00FC399E = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 36CUT7YB68;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					D0A856FD1A65900E00FC399E = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -355,6 +367,7 @@
 				D0489AD81A661FBF00FFFECD /* ImageCollectionViewCell.swift in Sources */,
 				D0A856EF1A65900E00FC399E /* InstagramOnParse.xcdatamodeld in Sources */,
 				D0A8573B1A65BBE000FC399E /* PostImageViewController.swift in Sources */,
+				D0EC01B11A69C4B200A6D40D /* MapViewController.swift in Sources */,
 				D0489B0D1A66660E00FFFECD /* ProfileViewController.swift in Sources */,
 				D0EC01AD1A6846A400A6D40D /* ShowImageViewController.swift in Sources */,
 				D0A857381A65A04B00FC399E /* UsersViewController.swift in Sources */,

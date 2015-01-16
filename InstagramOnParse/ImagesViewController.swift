@@ -19,13 +19,13 @@ class ImagesViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        println(user)
+
         getImages()
         refreshControl.attributedTitle = NSAttributedString(string: "Refresh")
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         collectionView.addSubview(refreshControl)
         collectionView.alwaysBounceVertical = true
-
+        
     }
 
     func refresh(sender: AnyObject) {

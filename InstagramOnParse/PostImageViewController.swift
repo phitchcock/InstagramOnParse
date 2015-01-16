@@ -8,7 +8,9 @@
 
 import UIKit
 
-class PostImageViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
+class PostImageViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, CLLocationManagerDelegate {
+
+    var locationManager: CLLocationManager!
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var postTextField: UITextField!
@@ -19,6 +21,13 @@ class PostImageViewController: UIViewController, UINavigationControllerDelegate,
         postTextField.layer.cornerRadius = 10.0
         postTextField.layer.borderWidth = 1
         postTextField.layer.borderColor = UIColor.blackColor().CGColor
+
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 100.0
+        locationManager.startUpdatingLocation()
+        locationManager.requestAlwaysAuthorization()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +44,7 @@ class PostImageViewController: UIViewController, UINavigationControllerDelegate,
         image.delegate = self
         image.sourceType = .PhotoLibrary
         image.allowsEditing = true
+
         presentViewController(image, animated: true, completion: nil)
     }
 
@@ -48,6 +58,8 @@ class PostImageViewController: UIViewController, UINavigationControllerDelegate,
         photo["user_id"] = user
         photo["image"] = imageFile
         photo["title"] = postTextField.text
+        photo["lat"] = locationManager.location.coordinate.latitude
+        photo["long"] = locationManager.location.coordinate.longitude
 
         //comment["user_id"] = user
         //comment["photo_id"] = photo
@@ -58,5 +70,10 @@ class PostImageViewController: UIViewController, UINavigationControllerDelegate,
         navigationController?.popViewControllerAnimated(true)
 
     }
+
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+
+    }
+
     
 }
