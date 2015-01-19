@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     var images: [PFObject] = []
     var locationManager: CLLocationManager!
@@ -54,11 +54,36 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                     let annotation = MKPointAnnotation()
                     annotation.setCoordinate(location)
                     annotation.title = object["title"] as String
+
+                    let identifier = "HomePin"
+                    var annotationView = self.mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+
                     self.mapView.addAnnotation(annotation)
+                    //self.mapView.selectAnnotation(annotation, animated: true)
                 }
             } else {
                 println("error")
             }
         }
     }
+
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        let identifier = "HomePin"
+
+        if annotation.isKindOfClass(MKUserLocation) {
+            return nil
+        }
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView.canShowCallout = true
+        }
+        let leftIconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 53, height: 53))
+        //leftIconView.image = UIImage(data: home.image)
+        annotationView.leftCalloutAccessoryView = leftIconView
+
+        return annotationView
+    }
+
 }

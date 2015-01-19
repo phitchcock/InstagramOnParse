@@ -43,7 +43,6 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var getImage = images[indexPath.row]
         //cell.imageView?.image = UIImage(named: "ProfileCover")
         cell.titleLabel.text = getImage["title"] as? String
-        cell.usernameLabel.text = "Yep"
 
         cell.userProfileImageView.image = UIImage(named: "ProfileCover")
         cell.userProfileImageView.layer.cornerRadius = cell.userProfileImageView.frame.size.width / 2
