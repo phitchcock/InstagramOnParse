@@ -8,9 +8,11 @@
 
 import UIKit
 
-class ShowImageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ShowImageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
     var comments = [PFObject]()
+    var users = [PFUser]()
+    var userImage = PFFile()
     var showImage: PFObject!
     var imageFile: PFFile!
     var refreshControl = UIRefreshControl()
@@ -63,11 +65,19 @@ class ShowImageViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as FeedTableViewCell
         let comment = comments[indexPath.row]
+        let user = users[indexPath.row]
         cell.commentLabel.text = comment["comment"] as? String
 
-        cell.userProfileImageView.image = UIImage(named: "ProfileCover")
         cell.userProfileImageView.layer.cornerRadius = cell.userProfileImageView.frame.size.width / 2
         cell.userProfileImageView.clipsToBounds = true
+
+        userImage = user["imageFile"] as PFFile
+        userImage.getDataInBackgroundWithBlock { (data: NSData!, error: NSError!) -> Void in
+            if error == nil {
+                let image = UIImage(data: data)
+                cell.userProfileImageView.image = image
+            }
+        }
 
         return cell
     }
@@ -86,17 +96,30 @@ class ShowImageViewController: UIViewController, UITableViewDataSource, UITableV
         var query = PFQuery(className: "Comment")
         query.whereKey("photo_id", equalTo: showImage)
         query.orderByAscending("createdAt")
+        query.includeKey("user_id")
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
                 self.comments.removeAll()
+                self.users.removeAll()
                 for object in objects {
+                    let user = object["user_id"] as PFUser
                     self.comments.append(object as PFObject)
+                    self.users.append(user)
                 }
                  self.tableView.reloadData()
             } else {
                 println("error")
             }
         }
+    }
+
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        view.endEditing(true)
+    }
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        commentTextField.resignFirstResponder()
+        return true
     }
 
 }

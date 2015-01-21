@@ -11,7 +11,9 @@ import UIKit
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var images = [PFObject]()
+    var users = [PFUser]()
     var imageFile = PFFile()
+    var userProfile = PFFile()
     var refreshControl = UIRefreshControl()
 
     @IBOutlet weak var tableView: UITableView!
@@ -40,11 +42,12 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as FeedTableViewCell
+        var getUser = users[indexPath.row]
         var getImage = images[indexPath.row]
         //cell.imageView?.image = UIImage(named: "ProfileCover")
         cell.titleLabel.text = getImage["title"] as? String
 
-        cell.userProfileImageView.image = UIImage(named: "ProfileCover")
+        //cell.userProfileImageView.image = UIImage(named: "ProfileCover")
         cell.userProfileImageView.layer.cornerRadius = cell.userProfileImageView.frame.size.width / 2
         cell.userProfileImageView.clipsToBounds = true
 
@@ -57,24 +60,41 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 println("error")
             }
         }
+
+        userProfile = getUser["imageFile"] as PFFile
+        userProfile.getDataInBackgroundWithBlock { (data: NSData!, error: NSError!) -> Void in
+            if error == nil {
+                let userImage = UIImage(data: data)
+                cell.userProfileImageView.image = userImage
+            }
+        }
         
         return cell
     }
 
     func getImages() {
+        images = [PFObject]()
+        users = [PFUser]()
+
         var query = PFQuery(className: "Photo")
         query.orderByDescending("createdAt")
+        query.includeKey("user_id")
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
+
+                //self.images = objects as [PFObject]
                 self.images.removeAll()
+                self.users.removeAll()
+
                 for object in objects {
+
+                    let user = object["user_id"] as PFUser
+
                     self.images.append(object as PFObject)
+                    self.users.append(user as PFUser)
 
                 }
                 self.tableView.reloadData()
-
-            } else {
-                println("error")
             }
         }
     }

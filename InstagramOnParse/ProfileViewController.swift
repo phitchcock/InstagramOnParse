@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     //var user = PFUser.currentUser()
     var images = [PFObject]()
     var imageFile = PFFile()
+    var userCellImage = PFFile()
     var cellImageFile = PFFile()
     var refreshControl = UIRefreshControl()
 
@@ -66,8 +67,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as FeedTableViewCell
         let getImage = images[indexPath.row]
         cell.titleLabel.text = getImage["title"] as? String
-        cell.usernameLabel.text = "Yep"
-        cell.userProfileImageView.layer.cornerRadius = cell.cellImageView.frame.size.width / 2
+
+        //cell.userProfileImageView.image = UIImage(named: "ProfileCover")
+        cell.userProfileImageView.layer.cornerRadius = cell.userProfileImageView.frame.size.width / 2
         cell.userProfileImageView.clipsToBounds = true
 
         cellImageFile = getImage["image"] as PFFile
@@ -78,6 +80,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 //println(data)
                 let image = UIImage(data: data)
                 cell.cellImageView.image = image
+            }
+        }
+
+        userCellImage = PFUser.currentUser()["imageFile"] as PFFile
+        userCellImage.getDataInBackgroundWithBlock { (data: NSData!, error: NSError!) -> Void in
+            if error == nil {
+                let image = UIImage(data: data)
+                cell.userProfileImageView.image = image
+            } else {
+                println("error")
             }
         }
 
@@ -115,6 +127,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     @IBAction func logoutButtonPressed(sender: AnyObject) {
         PFUser.logOut()
+
         performSegueWithIdentifier("logoutSegue", sender: self)
     }
     

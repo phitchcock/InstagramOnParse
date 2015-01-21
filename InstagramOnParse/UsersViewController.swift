@@ -10,16 +10,19 @@ import UIKit
 
 class UsersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var one = PFUser()
     var users: [PFUser] = []
     var following: [Bool] = []
     var refreshControl = UIRefreshControl()
+    var profileImage: PFFile!
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //var addUser = PFUser()
-        //users.append(addUser)
+        //users.append(addUser)'
+        //users = [one]
         getUsers()
 
         refreshControl.attributedTitle = NSAttributedString(string: "Refresh")
@@ -36,7 +39,7 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UserTableViewCell
 
         if following.count > indexPath.row {
             if following[indexPath.row] {
@@ -44,8 +47,21 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
         }
 
+        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width / 2
+        cell.profileImageView.clipsToBounds = true
+
         var user = users[indexPath.row]
-        cell.textLabel?.text = user.username
+        cell.nameLabel.text = user.username
+
+
+        profileImage = user["imageFile"] as PFFile
+        profileImage.getDataInBackgroundWithBlock { (data: NSData!, error: NSError!) -> Void in
+            if error == nil {
+                let image = UIImage(data: data)
+                cell.profileImageView.image = image
+            }
+        }
+        
         return cell
     }
 
@@ -92,7 +108,7 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
                 if user.username != PFUser.currentUser().username {
 
                     self.users.append(user)
-                    //isFollowing = false
+                    isFollowing = false
 
                     var query = PFQuery(className:"Follow")
                     query.whereKey("follower", equalTo: PFUser.currentUser())

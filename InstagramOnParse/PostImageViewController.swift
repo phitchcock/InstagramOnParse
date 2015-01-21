@@ -58,8 +58,8 @@ class PostImageViewController: UIViewController, UINavigationControllerDelegate,
         photo["user_id"] = user
         photo["image"] = imageFile
         photo["title"] = postTextField.text
-        photo["lat"] = locationManager.location.coordinate.latitude
-        photo["long"] = locationManager.location.coordinate.longitude
+        //photo["lat"] = locationManager.location.coordinate.latitude
+        //photo["long"] = locationManager.location.coordinate.longitude
 
         //comment["user_id"] = user
         //comment["photo_id"] = photo

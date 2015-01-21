@@ -12,6 +12,7 @@
 		D0489ADA1A662CFD00FFFECD /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489AD91A662CFD00FFFECD /* FeedViewController.swift */; };
 		D0489ADD1A662D9B00FFFECD /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489ADC1A662D9B00FFFECD /* FeedTableViewCell.swift */; };
 		D0489B0D1A66660E00FFFECD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489B0C1A66660E00FFFECD /* ProfileViewController.swift */; };
+		D05837991A7025F4004102E8 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05837981A7025F4004102E8 /* UserTableViewCell.swift */; };
 		D0A856EC1A65900E00FC399E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A856EB1A65900E00FC399E /* AppDelegate.swift */; };
 		D0A856EF1A65900E00FC399E /* InstagramOnParse.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0A856ED1A65900E00FC399E /* InstagramOnParse.xcdatamodeld */; };
 		D0A856F41A65900E00FC399E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A856F21A65900E00FC399E /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		D0489AD91A662CFD00FFFECD /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		D0489ADC1A662D9B00FFFECD /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		D0489B0C1A66660E00FFFECD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D05837981A7025F4004102E8 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		D0A856E61A65900E00FC399E /* InstagramOnParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramOnParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A856EA1A65900E00FC399E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0A856EB1A65900E00FC399E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				D0A857371A65A04B00FC399E /* UsersViewController.swift */,
+				D05837981A7025F4004102E8 /* UserTableViewCell.swift */,
 				D0489B0C1A66660E00FFFECD /* ProfileViewController.swift */,
 			);
 			name = User;
@@ -363,6 +366,7 @@
 			files = (
 				D0A856EC1A65900E00FC399E /* AppDelegate.swift in Sources */,
 				D0489ADA1A662CFD00FFFECD /* FeedViewController.swift in Sources */,
+				D05837991A7025F4004102E8 /* UserTableViewCell.swift in Sources */,
 				D0489AD61A661D2A00FFFECD /* ImagesViewController.swift in Sources */,
 				D0489AD81A661FBF00FFFECD /* ImageCollectionViewCell.swift in Sources */,
 				D0A856EF1A65900E00FC399E /* InstagramOnParse.xcdatamodeld in Sources */,
