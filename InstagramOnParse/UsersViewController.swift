@@ -41,18 +41,11 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UserTableViewCell
 
-        if following.count > indexPath.row {
-            if following[indexPath.row] {
-                cell.accessoryType = .Checkmark
-            }
-        }
-
         cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.width / 2
         cell.profileImageView.clipsToBounds = true
 
         var user = users[indexPath.row]
         cell.nameLabel.text = user.username
-
 
         profileImage = user["imageFile"] as PFFile
         profileImage.getDataInBackgroundWithBlock { (data: NSData!, error: NSError!) -> Void in
@@ -64,7 +57,41 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         return cell
     }
+    /*
+    @IBAction func followUser(sender: AnyObject) {
 
+        var user = PFUser()
+        var queryUser = PFUser.query()
+        queryUser.whereKey("username", equalTo: )
+
+        var query = PFQuery(className:"Follow")
+        query.whereKey("follower", equalTo: PFUser.currentUser())
+        query.whereKey("following", equalTo: user)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                for object in objects {
+                    object.deleteInBackgroundWithTarget(nil, selector: nil)
+                }
+            }
+
+        }
+
+
+
+
+
+            /* else
+            var follow = PFObject(className: "Follow")
+            follow["follower"] = PFUser.currentUser()
+            follow["following"] = users[indexPath.row]
+            follow.saveInBackgroundWithTarget(nil, selector: nil)
+            */
+
+
+    }
+    */
+    /*
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         var user = users[indexPath.row]
@@ -93,12 +120,13 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
             follow.saveInBackgroundWithTarget(nil, selector: nil)
         }
     }
+    */
 
     func refresh(sender: AnyObject) {
         getUsers()
     }
 
-    func getUsers() {
+    func getUsers1() {
         var query = PFUser.query()
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             self.users.removeAll(keepCapacity: true)
@@ -131,10 +159,32 @@ class UsersViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
 
+    func getUsers() {
+        var query = PFUser.query()
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+            self.users.removeAll()
+
+            for object in objects {
+                var user = object as PFUser
+                if user.username != PFUser.currentUser().username {
+                    self.users.append(user)
+                }
+            }
+            self.tableView.reloadData()
+        }
+    }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showImagesSegue" {
             if let row = tableView.indexPathForSelectedRow()?.row {
                 let destinationViewController = segue.destinationViewController as ImagesViewController
+                destinationViewController.user = users[row]
+            }
+        }
+
+        if segue.identifier == "showUserSegue" {
+            if let row = tableView.indexPathForSelectedRow()?.row {
+                let destinationViewController = segue.destinationViewController as UserViewController
                 destinationViewController.user = users[row]
             }
         }

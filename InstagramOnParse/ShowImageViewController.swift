@@ -122,4 +122,52 @@ class ShowImageViewController: UIViewController, UITableViewDataSource, UITableV
         return true
     }
 
+    func textFieldDidBeginEditing(textField: UITextField) {
+
+        let theWidth = view.frame.size.width
+        let theHeight = view.frame.size.height
+
+        if (UIScreen.mainScreen().bounds.height == 568) {
+
+            if (textField == self.commentTextField) {
+
+                UIView.animateWithDuration(0.3, delay: 0, options: .CurveLinear, animations: {
+
+                    self.view.center = CGPointMake(theWidth/2, (theHeight/2)-40)
+
+                    }, completion: {
+                        (finished:Bool) in
+
+                        //
+                })
+            }
+        }
+    }
+
+
+
+    func textFieldDidEndEditing(textField: UITextField) {
+
+        let theWidth = view.frame.size.width
+        let theHeight = view.frame.size.height
+
+        if (UIScreen.mainScreen().bounds.height == 568) {
+
+            if (textField == self.commentTextField) {
+
+                UIView.animateWithDuration(0.3, delay: 0, options: .CurveLinear, animations: {
+
+                    self.view.center = CGPointMake(theWidth/2, (theHeight/2))
+
+                    }, completion: {
+                        (finished:Bool) in
+
+                        //
+
+                })
+            }
+        }
+    }
+
+
 }

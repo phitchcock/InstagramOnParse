@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D044D1F21A703A2A00324CD1 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D044D1F11A703A2900324CD1 /* UserViewController.swift */; };
 		D0489AD61A661D2A00FFFECD /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489AD51A661D2A00FFFECD /* ImagesViewController.swift */; };
 		D0489AD81A661FBF00FFFECD /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489AD71A661FBF00FFFECD /* ImageCollectionViewCell.swift */; };
 		D0489ADA1A662CFD00FFFECD /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0489AD91A662CFD00FFFECD /* FeedViewController.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D044D1F11A703A2900324CD1 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		D0489AD51A661D2A00FFFECD /* ImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
 		D0489AD71A661FBF00FFFECD /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0489AD91A662CFD00FFFECD /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				D0A857371A65A04B00FC399E /* UsersViewController.swift */,
+				D044D1F11A703A2900324CD1 /* UserViewController.swift */,
 				D05837981A7025F4004102E8 /* UserTableViewCell.swift */,
 				D0489B0C1A66660E00FFFECD /* ProfileViewController.swift */,
 			);
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0A856EC1A65900E00FC399E /* AppDelegate.swift in Sources */,
+				D044D1F21A703A2A00324CD1 /* UserViewController.swift in Sources */,
 				D0489ADA1A662CFD00FFFECD /* FeedViewController.swift in Sources */,
 				D05837991A7025F4004102E8 /* UserTableViewCell.swift in Sources */,
 				D0489AD61A661D2A00FFFECD /* ImagesViewController.swift in Sources */,

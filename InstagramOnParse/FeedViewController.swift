@@ -21,7 +21,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         getImages()
-
+        //followingUsers()
         refreshControl.attributedTitle = NSAttributedString(string: "Refresh")
         refreshControl.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         tableView.addSubview(refreshControl)
@@ -29,6 +29,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func refresh(sender: AnyObject) {
         getImages()
+        //followingUsers()
         refreshControl.endRefreshing()
     }
 
@@ -70,6 +71,44 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         return cell
+    }
+
+    func followingUsers() {
+        images = [PFObject]()
+        users = [PFUser]()
+        //var user = PFUser()
+
+        var query = PFQuery(className: "Follow")
+        query.whereKey("follower", equalTo: PFUser.currentUser())
+
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                self.images.removeAll()
+                self.users.removeAll()
+                for object in objects {
+                    let user = object["following"] as PFUser
+                    var photoQuery = PFQuery(className: "Photo")
+                    photoQuery.whereKey("user_id", equalTo: user)
+                    photoQuery.includeKey("user_id")
+                    photoQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]!, error: NSError!) -> Void in
+                        if error == nil {
+
+                            for object in objects {
+
+                                let user = object["user_id"] as PFUser
+
+                                self.images.append(object as PFObject)
+                                self.users.append(user as PFUser)
+                                
+                            }
+                            self.tableView.reloadData()
+                            //println(self.users)
+                            //println(self.images)
+                        }
+                    })
+                }
+            }
+        }
     }
 
     func getImages() {
